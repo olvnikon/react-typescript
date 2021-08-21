@@ -1,0 +1,44 @@
+{
+  "cats": [
+    {
+      "id": 1, "name": "Grizabella", "owner": 1
+    },
+    {
+      "id": 2, "name": "Mr. Mistoffelees", "owner": 1
+    },
+    {
+      "id": 3, "name": "Cindy Clawford", "owner": 2
+    },
+    {
+      "id": 4, "name": "Catzilla", "owner": 1
+    }
+  ],
+  "owners": [
+    {
+      "id": 1, "name": "John Smith"
+    },
+    {
+      "id": 2, "name": "Jan Kowalski"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1, "cat": 1, "owner": 2, "text": "Very nice and fluffy"
+    },
+    {
+      "id": 2, "cat": 1, "owner": 1, "text": "Thank you!"
+    },
+    {
+      "id": 3, "cat": 2, "owner": 2, "text": "Looks like a tiger!"
+    },
+    {
+      "id": 4, "cat": 3, "owner": 1, "text": "Huge claws!"
+    },
+    {
+      "id": 5, "cat": 3, "owner": 2, "text": "That's true :)"
+    },
+    {
+      "id": 6, "cat": 3, "owner": 1, "text": "Very nice"
+    }
+  ]
+}
