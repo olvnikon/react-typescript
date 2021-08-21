@@ -1,16 +1,16 @@
 {
   "cats": [
     {
-      "id": 1, "name": "Grizabella", "owner": 1
+      "id": 1, "name": "Grizabella", "ownerId": 1
     },
     {
-      "id": 2, "name": "Mr. Mistoffelees", "owner": 1
+      "id": 2, "name": "Mr. Mistoffelees", "ownerId": 1
     },
     {
-      "id": 3, "name": "Cindy Clawford", "owner": 2
+      "id": 3, "name": "Cindy Clawford", "ownerId": 2
     },
     {
-      "id": 4, "name": "Catzilla", "owner": 1
+      "id": 4, "name": "Catzilla", "ownerId": 1
     }
   ],
   "owners": [

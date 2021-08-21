@@ -1,6 +1,6 @@
 import { Resolver, Query, Arg } from 'type-graphql';
-import { Comment } from '../../types';
-import db from '../../db.json';
+import { Comment } from '../types';
+import db from '../db.json';
 
 @Resolver()
 export class CommentResolver {
