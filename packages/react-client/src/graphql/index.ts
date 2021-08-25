@@ -24,7 +24,7 @@ type Params<R, P> = Omit<QueryHookOptions<R, P>, 'variables'> & {
 
 export const useApolloQuery = <K extends keyof Queries>(
   qKey: K,
-  params?: Params<Queries[K]['returns'], Queries[K]['params']>
+  ...params: Queries[K]['params'] extends void ? [undefined?] : [Params<Queries[K]['returns'], Queries[K]['params']>]
 ) => {
-  return useQuery<Queries[K]['returns'], Queries[K]['params']>(queries[qKey], params);
+  return useQuery<Queries[K]['returns'], Queries[K]['params']>(queries[qKey], params[0]);
 };

@@ -8,8 +8,18 @@ const Comp = () => {
       id: 1,
     },
   });
+  const { data: catsData } = useApolloQuery('catsFull');
 
-  return <div>Hello {data?.cat.name}</div>;
+  return (
+    <div>
+      <div>Hello one cat: {data?.cat.name}</div>
+      {catsData?.cats.map((cat) => (
+        <div key={cat.id}>
+          One of cats: {cat.name}, owner: {cat.owner.name}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export const App = () => {
