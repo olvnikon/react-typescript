@@ -5,7 +5,7 @@ import { useApolloQuery } from './graphql';
 const Comp = () => {
   const { data } = useApolloQuery('catFull', {
     variables: {
-      id: 'asd',
+      id: 1,
     },
   });
 
