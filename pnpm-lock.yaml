@@ -8,6 +8,15 @@ importers:
     dependencies:
       typescript: 4.3.5
 
+  packages/client:
+    specifiers:
+      '@apollo/client': 3.4.8
+      typescript: 4.3.5
+    dependencies:
+      '@apollo/client': 3.4.8
+    devDependencies:
+      typescript: 4.3.5
+
   packages/graphql-server:
     specifiers:
       '@types/cors': 2.8.12
@@ -40,6 +49,7 @@ importers:
   packages/react-client:
     specifiers:
       '@apollo/client': 3.4.8
+      '@react.typescript/react-client': workspace:*
       '@testing-library/jest-dom': 5.14.1
       '@testing-library/react': 11.2.7
       '@testing-library/user-event': 12.8.3
@@ -55,6 +65,7 @@ importers:
       web-vitals: 1.1.2
     dependencies:
       '@apollo/client': 3.4.8_graphql@15.5.1+react@17.0.2
+      '@react.typescript/react-client': 'link:'
       '@testing-library/jest-dom': 5.14.1
       '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
       '@testing-library/user-event': 12.8.3
@@ -70,6 +81,32 @@ importers:
       web-vitals: 1.1.2
 
 packages:
+
+  /@apollo/client/3.4.8:
+    resolution: {integrity: sha512-/cNqTSwc2Dw8q6FDDjdd30+yvhP7rI0Fvl3Hbro0lTtFuhzkevfNyQaI2jAiOrjU6Jc0RbanxULaNrX7UmvjSQ==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+      react: ^16.8.0 || ^17.0.0
+      subscriptions-transport-ws: ^0.9.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      subscriptions-transport-ws:
+        optional: true
+    dependencies:
+      '@graphql-typed-document-node/core': 3.1.0
+      '@wry/context': 0.6.1
+      '@wry/equality': 0.5.2
+      '@wry/trie': 0.3.1
+      graphql-tag: 2.12.5
+      hoist-non-react-statics: 3.3.2
+      optimism: 0.16.1
+      prop-types: 15.7.2
+      symbol-observable: 4.0.0
+      ts-invariant: 0.9.1
+      tslib: 2.3.1
+      zen-observable-ts: 1.1.0
+    dev: false
 
   /@apollo/client/3.4.8_graphql@15.5.1+react@17.0.2:
     resolution: {integrity: sha512-/cNqTSwc2Dw8q6FDDjdd30+yvhP7rI0Fvl3Hbro0lTtFuhzkevfNyQaI2jAiOrjU6Jc0RbanxULaNrX7UmvjSQ==}
@@ -1629,6 +1666,12 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@graphql-typed-document-node/core/3.1.0:
+    resolution: {integrity: sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dev: false
 
   /@graphql-typed-document-node/core/3.1.0_graphql@15.5.1:
@@ -5978,6 +6021,15 @@ packages:
     dependencies:
       graphql: 15.5.1
       iterall: 1.3.0
+    dev: false
+
+  /graphql-tag/2.12.5:
+    resolution: {integrity: sha512-5xNhP4063d16Pz3HBtKprutsPrmHZi5IdUGOWRxA2B6VF7BIRGOHZ5WQvDmJXZuPcBg7rYwaFxvQYjqkSdR3TQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    dependencies:
+      tslib: 2.3.1
     dev: false
 
   /graphql-tag/2.12.5_graphql@15.5.1:
