@@ -1,30 +1,22 @@
 import { useQuery, DocumentNode, QueryHookOptions } from '@apollo/client';
-import { catsFull, CatFull, catsShort, CatShort, catFull } from './queries';
 
-type Query<E extends string, P, R> = {
+export type Query<E extends string, P, R> = {
   params: P;
   returns: Record<E, R>;
 };
 
-type Queries = {
-  catsFull: Query<'cats', void, CatFull[]>;
-  catsShort: Query<'cats', void, CatShort[]>;
-  catFull: Query<'cat', { id: number }, CatFull>;
-};
-
-const queries: Record<keyof Queries, DocumentNode> = {
-  catsFull,
-  catsShort,
-  catFull,
-};
+export type QueriesGen = Record<string, Query<string, unknown, unknown>>;
 
 type Params<R, P> = Omit<QueryHookOptions<R, P>, 'variables'> & {
   variables: P;
 };
 
-export const useApolloQuery = <K extends keyof Queries>(
-  qKey: K,
-  ...params: Queries[K]['params'] extends void ? [undefined?] : [Params<Queries[K]['returns'], Queries[K]['params']>]
-) => {
-  return useQuery<Queries[K]['returns'], Queries[K]['params']>(queries[qKey], params[0]);
-};
+export const genUseApolloQueryHook =
+  <Q extends QueriesGen, T extends Record<keyof Q, DocumentNode>>(queries: T) =>
+  <K extends keyof Q>(
+    qKey: K,
+    ...params: Q[K]['params'] extends void ? [undefined?] : [Params<Q[K]['returns'], Q[K]['params']>]
+  ) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useQuery<Q[K]['returns'], Q[K]['params']>(queries[qKey], params[0]);
+  };

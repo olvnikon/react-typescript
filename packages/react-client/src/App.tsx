@@ -1,6 +1,6 @@
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apolloClient';
-import { useApolloQuery } from './graphql';
+import { useApolloQuery } from './hooks/useApolloQuery';
 
 const Comp = () => {
   const { data } = useApolloQuery('catFull', {
