@@ -5,10 +5,9 @@ import db from './db.json';
 
 type dbType = typeof db;
 
-export const fetchFromDB = () =>
+export const fetchFromDB = async () =>
   pipe(
     path.join(__dirname, './db.json'),
     (file) => fs.readFileSync(file, 'utf8'),
-    JSON.parse,
-    Promise.resolve
-  ) as Promise<dbType>;
+    JSON.parse
+  ) as dbType;

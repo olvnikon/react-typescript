@@ -23,9 +23,12 @@ export class CatResolver {
     return cat ? this._attachEntities(cat) : undefined;
   }
 
-  private _attachEntities = (cat: catType) => Promise.resolve(cat).then(this._attachOwner).then(this._attachComments);
+  private _attachEntities = (cat: catType) =>
+    Promise.resolve(cat).then(this._attachOwner).then(this._attachComments);
 
-  private async _attachOwner<T extends catType>(cat: T): Promise<T & { owner: Owner }> {
+  private async _attachOwner<T extends catType>(
+    cat: T
+  ): Promise<T & { owner: Owner }> {
     const allData = await fetchFromDB();
     return {
       ...cat,
@@ -33,7 +36,9 @@ export class CatResolver {
     };
   }
 
-  private async _attachComments<T extends catType>(cat: T): Promise<T & { comments: Comment[] }> {
+  private async _attachComments<T extends catType>(
+    cat: T
+  ): Promise<T & { comments: Comment[] }> {
     const allData = await fetchFromDB();
     return {
       ...cat,
