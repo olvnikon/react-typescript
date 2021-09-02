@@ -4,9 +4,13 @@ import { useApolloQuery } from './hooks/useApolloQuery';
 
 const Comp = () => {
   const { data } = useApolloQuery('catFull', {
+    // Variables are mandatory and properly typed
     variables: { id: 1 },
+    // Polling for keeping data persistent
     pollInterval: 2000,
   });
+
+  // Variables are not allowed
   const { data: catsData } = useApolloQuery('catsFull', { pollInterval: 2000 });
 
   return (

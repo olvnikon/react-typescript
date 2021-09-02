@@ -5,6 +5,7 @@ import db from './db.json';
 
 type dbType = typeof db;
 
+// Read file for refetching it
 export const fetchFromDB = async () =>
   pipe(
     path.join(__dirname, './db.json'),

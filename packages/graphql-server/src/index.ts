@@ -3,17 +3,23 @@ import 'reflect-metadata';
 import { graphqlHTTP } from 'express-graphql';
 import { buildSchema } from 'type-graphql';
 import cors from 'cors';
-import { CatResolver, CommentResolver, OwnerResolver } from './graphql/resolvers';
+import {
+  CatResolver,
+  CommentResolver,
+  OwnerResolver,
+} from './graphql/resolvers';
 
 (async () => {
-  const schema = await buildSchema({ resolvers: [CatResolver, CommentResolver, OwnerResolver] });
+  const schema = await buildSchema({
+    resolvers: [CatResolver, CommentResolver, OwnerResolver],
+  });
 
   const app = express();
   app.use(cors());
   app.use(
     '/graphql',
     graphqlHTTP({
-      schema: schema,
+      schema,
       graphiql: true,
     })
   );
