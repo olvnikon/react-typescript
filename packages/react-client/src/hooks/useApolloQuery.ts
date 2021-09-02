@@ -1,5 +1,11 @@
 import { genUseApolloQueryHook, QueriesGen, Query } from '../graphql';
-import { catsFull, CatFull, catsShort, CatShort, catFull } from '../graphql/queries';
+import {
+  catsFull,
+  CatFull,
+  catsShort,
+  CatShort,
+  catFull,
+} from '../graphql/queries';
 
 interface Queries extends QueriesGen {
   catsFull: Query<'cats', void, CatFull[]>;
@@ -14,4 +20,6 @@ const queries = {
 } as const;
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
-export const useApolloQuery = genUseApolloQueryHook<Queries, typeof queries>(queries);
+export const useApolloQuery = genUseApolloQueryHook<Queries, typeof queries>(
+  queries
+);

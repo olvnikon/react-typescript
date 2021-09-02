@@ -4,9 +4,7 @@ import { useApolloQuery } from './hooks/useApolloQuery';
 
 const Comp = () => {
   const { data } = useApolloQuery('catFull', {
-    variables: {
-      id: 1,
-    },
+    variables: { id: 1 },
     pollInterval: 2000,
   });
   const { data: catsData } = useApolloQuery('catsFull', { pollInterval: 2000 });
