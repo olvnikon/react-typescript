@@ -11,7 +11,9 @@ type Params<R, P> = Omit<QueryHookOptions<R, P>, 'variables'> &
   (P extends void ? {} : { variables: P });
 
 export const genUseApolloQueryHook =
-  <Q extends QueriesGen, T extends Record<keyof Q, DocumentNode>>(queries: T) =>
+  <Q extends QueriesGen, T extends { [key in keyof Q]: DocumentNode }>(
+    queries: T
+  ) =>
   <K extends keyof Q>(
     qKey: K,
     ...params: Q[K]['params'] extends void
