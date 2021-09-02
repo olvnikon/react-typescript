@@ -7,8 +7,9 @@ const Comp = () => {
     variables: {
       id: 1,
     },
+    pollInterval: 2000,
   });
-  const { data: catsData } = useApolloQuery('catsFull');
+  const { data: catsData } = useApolloQuery('catsFull', { pollInterval: 2000 });
 
   return (
     <div>
